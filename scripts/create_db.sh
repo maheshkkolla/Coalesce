@@ -8,6 +8,7 @@ echo "--> Creating Tables ..."
 psql coalsce -c "CREATE SEQUENCE user_id MINVALUE 1111"
 psql coalsce -c "CREATE TABLE users(
 	id integer PRIMARY KEY default nextval('user_id'),
+	email varchar(50),
 	name varchar(30),
 	password varchar(100))"
-echo "--> Created All Tables."
+echo "--> Created All Tables Needed."
