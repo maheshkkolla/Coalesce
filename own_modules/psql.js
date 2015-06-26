@@ -1,5 +1,5 @@
 var pg = require('pg');
-var INSERT_CMD = "INSERT INTO @TABLE_NAME@(@COLUMNS@) VALUES (@VALUES@)"; 
+var INSERT_CMD = "INSERT INTO @TABLE_NAME@(@COLUMNS@) VALUES (@VALUES@) RETURNING *"; 
 
 var getTimeStamp = function() {
 	return("[" + String(new Date()) + "]");
@@ -39,7 +39,8 @@ var _exec = function(callback) {
 	var values = this.values;
 	pg.connect(this.connStr, function(error, client, done){
 		error && logError(error);
-		client.query(qry, values);
+		client.query(qry, values, callback);
+		done();
 	});
 }
 
