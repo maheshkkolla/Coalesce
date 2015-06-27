@@ -5,10 +5,8 @@ echo "--> Creating DataBase ..."
 createdb coalsce
 echo "--> Created DataBase."
 echo "--> Creating Tables ..."
-psql coalsce -c "CREATE SEQUENCE user_id MINVALUE 1111"
-psql coalsce -c "CREATE TABLE users(
-	id integer PRIMARY KEY default nextval('user_id'),
-	email varchar(50),
-	name varchar(30),
-	password varchar(100))"
+psql coalsce -c "CREATE SEQUENCE org_id MINVALUE 1111"
+psql coalsce -c "CREATE TABLE organisations(
+	id integer PRIMARY KEY default nextval('org_id'),
+	name varchar(30))"
 echo "--> Created All Tables Needed."
