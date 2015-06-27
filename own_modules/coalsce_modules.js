@@ -9,13 +9,6 @@ var _getAllOrganisations = function(callback) {
 }
 
 
-
-
-
-
-
-
-
 module.exports = {
 	getAllOrganisations: _getAllOrganisations
 }

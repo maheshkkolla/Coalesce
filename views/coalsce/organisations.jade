@@ -1,0 +1,10 @@
+script(src="./javascripts/coalsce/h_scroll.js")
+h3 Organisations using Coalsce :
+
+
+div(class="parent")
+ div(class="organisations")
+  each organisation in organisations
+   div(class="icon")
+     img(src="./images/default.jpeg" class="org_img")
+     b #{organisation.name}
