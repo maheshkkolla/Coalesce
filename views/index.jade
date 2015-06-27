@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  a(href="/create") Create Organisation
+  h1 Organisations
+  ul
+   each organisation in organisations
+    li #{organisation.name}
