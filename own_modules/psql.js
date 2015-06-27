@@ -1,5 +1,6 @@
 var pg = require('pg');
-var INSERT_CMD = "INSERT INTO @TABLE_NAME@(@COLUMNS@) VALUES (@VALUES@) RETURNING *"; 
+var INSERT_CMD = "INSERT INTO @TABLE_NAME@(@COLUMNS@) VALUES(@VALUES@) RETURNING *"; 
+var SELECT_CMD = "SELECT @COLUMNS@ FROM @TABLE_NAME@";
 
 var getTimeStamp = function() {
 	return("[" + String(new Date()) + "]");
@@ -21,7 +22,7 @@ var validateInsertParameters = function(tableName, columns, values) {
 var getVlaues = function(length) {
 	var values = "$1"
 	for(var value=2; value<=length; value++){
-		values += ", $" + value;
+		values += ",$" + value;
 	};
 	return values;
 }
@@ -32,6 +33,18 @@ var _insert = function(tableName, columns, values) {
 	this.query = INSERT_CMD.replace(/@TABLE_NAME@/g, tableName); 
 	this.query = this.query.replace(/@COLUMNS@/g, columns.toString()); 
 	this.query = this.query.replace(/@VALUES@/g, getVlaues(values.length)); 
+}
+
+var _select = function(tableName, columns) {
+	tableName || throwErrorWith("Table name is missing.");
+	columns || (columns = "*");
+	this.query = SELECT_CMD.replace(/@TABLE_NAME@/g, tableName);
+	this.query = this.query.replace(/@COLUMNS@/g, columns.toString());
+	this.where = _where;  
+}
+
+var _where = function(conditions) {
+	this.query += " WHERE " + conditions;
 }
 
 var _exec = function(callback) {
@@ -53,5 +66,6 @@ exports.Psql = Psql;
 
 Psql.prototype = {
 	insert: _insert,
+	select: _select,
 	exec: _exec
 }

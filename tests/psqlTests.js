@@ -29,8 +29,23 @@ describe("Psql", function() {
 			assert.deepEqual(db.values, ["c@c.com","random","secret"]);
 			done();
 		});
-		it("should throw the error if table name is missing in parameters", function(done) {
+		// it("should throw the error if table name is missing in parameters", function(done) {
 			
+		// });
+	});
+
+	describe("select", function() {
+		it('should make the select query with the sended table name', function(done) {
+			var db = new Psql('localhost','5432','test');
+			db.select("users");
+			assert.equal(db.query,"SELECT * FROM users");
+			done();
+		});
+		it("should make the select query with table name and given columns", function(done) {
+			var db = new Psql('localhost','5432',"test");
+			db.select("users",["name","password"]);
+			assert.equal(db.query, "SELECT name,password FROM users");
+			done();
 		});
 	});
 });
