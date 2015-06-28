@@ -4,8 +4,9 @@ var organisations = require("../own_modules/organisations_modules.js");
 
 
 router.post("/create", function(req, res, next) {
-	organisations.create(organisation, function(created_org) {
-		res.redirect(created_org.name+".localhost.com");
+	organisations.create(req.body, function(error, result) {
+		var created = result.rows[0];
+		res.redirect("http://"+created.site_name+".localhost:3000");
 	});
 });
 
