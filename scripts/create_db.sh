@@ -2,7 +2,7 @@
 echo "--> Clearing old data if exits"
 dropdb --if-exists coalsce
 echo "--> Creating DataBase ..."
-createdb coalsce
+createdb organisations
 echo "--> Created DataBase."
 echo "--> Creating Tables ..."
 psql coalsce -c "CREATE SEQUENCE org_id MINVALUE 1111"
