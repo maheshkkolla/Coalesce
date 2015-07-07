@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
+var allRoutes = require('./allRoutes');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	res.render('coalsce/index');
 });
 
-router.get("/create", function(req, res, next) {
-	res.render('coalsce/create');
-});
+router.use('/:organisation', allRoutes);
 
 module.exports = router;
