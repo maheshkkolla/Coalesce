@@ -44,8 +44,8 @@ var _select = function(tableName, columns) {
 	return this;  
 }
 
-var _where = function(conditions) {
-	this.query += " WHERE " + conditions;
+var _where = function(conditions, endClause) {
+	this.query += " WHERE " + conditions + " " + endClause;
 }
 
 var _exec = function(callback) {
