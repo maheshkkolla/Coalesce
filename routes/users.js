@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/create', function(req, res, next) {
+	console.log("Got Here");
 	var user = {email:"mahesh@gmail.com",name:"mahesh", password: "mahesh"};
 	users.create(user ,function(user){
 		res.json(user);
@@ -20,6 +21,12 @@ router.get('/delete', function(req, res, next) {
 
 router.get('/update', function(req, res, next) {
 	res.send("Update");
+});
+
+router.get('/:mail', function(req, res, next) {
+	users.get(req.params.mail,function(user) {
+		res.json(user);
+	});
 });
 
 module.exports = router;
