@@ -17,9 +17,9 @@ var _create = function(user, callback){
 	});
 }
 
-var _get = function(email, callback) {
+var _get = function(id, callback) {
 	var db = new Psql('localhost', '5432','coalsce');
-	db.select('users').where("email='"+email+"'");
+	db.select('users').where("id='"+email+"'");
 	db.exec(function(err, result) {
 		err && console.log("Error: ",err);
 		err || callback(result.rows[0]);
