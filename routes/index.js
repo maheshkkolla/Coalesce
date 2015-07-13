@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
 	res.render('coalsce/index');
 });
 
-router.use('/:organisation', allRoutes);
+
+// router.use('/:organisation', allRoutes);
 
 module.exports = router;
