@@ -13,7 +13,7 @@ var _getAllMessages = function(user1, user2, callback) {
 	var users = "@ROLE@=" + user1 + " OR @ROLE@=" + user2 + "";
 	var condition =  users.replace(/@ROLE@/g,'sender') + " AND " + users.replace(/@ROLE@/g,'receiver')
 	var db = new Psql('localhost','5432','coalsce');
-	db.select('messages').where(condition);
+	db.select('messages').where(condition,"ORDER BY dt");
 	db.exec(function(err, result) {
 		err && console.log("Error: ",err);
 		err || callback(result.rows);
