@@ -40,7 +40,8 @@ var _select = function(tableName, columns) {
 	columns || (columns = "*");
 	this.query = SELECT_CMD.replace(/@TABLE_NAME@/g, tableName);
 	this.query = this.query.replace(/@COLUMNS@/g, columns.toString());
-	this.where = _where;  
+	this.where = _where;
+	return this;  
 }
 
 var _where = function(conditions) {
