@@ -8,26 +8,24 @@ a {
   color: #00B7FF;
 }
 
-.parent {
-  overflow-y: hidden;
-  overflow-x:scroll;
-  height: 200px;
-  width: 100%; 
+/*Message*/
+.message {
+  position: relative;
+  padding: 1px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  /*border: 1px solid #ccc;*/
+  border-radius: 6px;
+  margin: 1px;
 }
 
-.organisations {
-  height: 100%;
+.message.right {
+  margin-left: 20%;
+  text-align: right;
+}
+.message.left {
+  text-align: left;
+  margin-right: 20%;
 }
 
-.icon {
-	width: 200px;
-  height: 200px;
-  margin: 10px;
-  background-color: lightgray;
-}
-.org_img {
-  width: 100%;
-  height: 80%;
-}
-
-
+/*End Message*/

@@ -20,7 +20,7 @@ router.get('/:userId',function(req, res, next) {
 	var user = 1;
 	var other = 4;
 	messages.getAllMessages(user, other ,function(allMessages) {
-		res.json(allMessages);
+		res.render('messages/index',{messages: allMessages});
 	});
 });
 
