@@ -6,4 +6,8 @@ div(class="container")
   else
    - var className="left" 
   div(class="message #{className}")
-   include message
+   div(class="message-content")
+    | #{message.message}
+   div(class="messageTime")
+    | !{new Date(message.dt).toLocaleTimeString()} &emsp;
+

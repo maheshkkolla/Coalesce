@@ -2,6 +2,7 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   height: 100%;
+  background-color: lightgray;
 }
 
 a {
@@ -12,16 +13,27 @@ a {
 
 /*End Removable*/
 
-
 /*Message*/
 .message {
   margin: 2px;
 }
 
+.arrow{
+  
+}
 .message-content {
   display: inline-block;
-  border: 1px solid;
   border-radius: 3px;
+  padding: 5px;
+  background-color: skyblue;
+  box-shadow: 1px 1px 5px blue;
+  color: darkblue;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+.messageTime {
+  font-style: italic;
+  color: gray;
 }
 
 .message.right {
