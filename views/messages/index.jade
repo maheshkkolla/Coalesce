@@ -2,7 +2,8 @@ include include_files
 div(class="container")
  each message in messages
   if message.you
-   - var className="message right"
+   - var className="right"
   else
-   - var className="message left" 
-  include message
+   - var className="left" 
+  div(class="message #{className}")
+   include message

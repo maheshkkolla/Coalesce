@@ -8,24 +8,30 @@ a {
   color: #00B7FF;
 }
 
+/*Removable*/
+
+/*End Removable*/
+
+
 /*Message*/
 .message {
-  position: relative;
-  padding: 1px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  /*border: 1px solid #ccc;*/
-  border-radius: 6px;
-  margin: 1px;
+  margin: 2px;
+}
+
+.message-content {
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 3px;
 }
 
 .message.right {
   margin-left: 20%;
   text-align: right;
 }
+
 .message.left {
-  text-align: left;
   margin-right: 20%;
+  text-align: left;
 }
 
 /*End Message*/
