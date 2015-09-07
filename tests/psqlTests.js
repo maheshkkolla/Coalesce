@@ -12,7 +12,7 @@ describe("Psql", function() {
 		it("should make the query to empty string", function(done) {
 			var db = new Psql('localhost','5432','test');
 			assert.equal(db.query, "");
-			done();
+			// done();
 		});
 	});
 
